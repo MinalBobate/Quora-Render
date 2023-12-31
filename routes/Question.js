@@ -38,12 +38,35 @@ router.get("/", async (req, res) => {
     const doc=await questionDB.find()
       
       .then((doc) => {
+        // console.log(doc);
         res.status(200).send(doc);
       })
       .catch((error) => {
         res.status(500).send({
           status: false,
           message: "Unable to get the question details",
+        });
+      });
+  } catch (e) {
+    res.status(500).send({
+      status: false,
+      message: "Unexpected error",
+    });
+  }
+});
+
+router.get("/:id", async (req, res) => {
+  try {
+    const doc=await questionDB.find({'_id':req.params.id})
+      
+      .then((doc) => {
+        console.log(doc);
+        res.status(200).send(doc);
+      })
+      .catch((error) => {
+        res.status(500).send({
+          status: false,
+          message: "Unable to get the question by id",
         });
       });
   } catch (e) {

@@ -30,13 +30,13 @@ app.use('/',router)
 app.use("/uploads", express.static(path.join(__dirname, "/../uploads")));
 app.use(express.static(path.join(__dirname, "/..//build")));
 
-app.get("*", (req, res) => {
-  try {
-    res.sendFile(path.join(`${__dirname}/../client/build/index.html`));
-  } catch (e) {
-    res.send("Oops! unexpected error");
-  }
-});
+// app.get("*", (req, res) => {
+//   try {
+//     res.sendFile(path.join(`${__dirname}/../client/build/index.html`));
+//   } catch (e) {
+//     res.send("Oops! unexpected error");
+//   }
+// });
 
 
 
