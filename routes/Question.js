@@ -60,7 +60,7 @@ router.get("/:id", async (req, res) => {
     const doc=await questionDB.find({'_id':req.params.id})
       
       .then((doc) => {
-        console.log(doc);
+      
         res.status(200).send(doc);
       })
       .catch((error) => {
